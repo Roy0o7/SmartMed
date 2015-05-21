@@ -13,7 +13,7 @@ public class Patients extends LoginPage{
 		driver.findElement(By.linkText("Patients")).click();
 	    driver.findElement(By.linkText("Manage")).click();
 	    	
-		Add();
+		//Add();
 		//Delete();
 	    //Edit();
 		
@@ -21,7 +21,7 @@ public class Patients extends LoginPage{
 	public static void Add(){
 		driver.findElement(By.xpath("//*[@id='add-btn']")).click();
 		
-		driver.findElement(By.xpath("//*[@id='id_username']")).sendKeys("Royce_");
+		driver.findElement(By.xpath("//*[@id='id_username']")).sendKeys("Royc");
 		driver.findElement(By.xpath("//*[@id='id_salutation']")).sendKeys("Mr");
 		driver.findElement(By.xpath("//*[@id='id_first_name']")).sendKeys("Pritish");
 		driver.findElement(By.xpath("//*[@id='id_surname']")).sendKeys("Roy");
@@ -50,13 +50,13 @@ public class Patients extends LoginPage{
 		driver.findElement(By.xpath("//*[@id='id_sex']")).sendKeys("Male");
 		driver.findElement(By.xpath("//*[@id='id_ethnicity']")).sendKeys("Asian British");
 		driver.findElement(By.xpath("//*[@id='id_prefered_name']")).sendKeys("Roy");
-		driver.findElement(By.xpath("//*[@id='id_email']")).sendKeys("pritishroy299@gmail.com");
+		driver.findElement(By.xpath("//*[@id='id_email']")).sendKeys("pritishroy1@gmail.com");
 		
-		//driver.findElement(By.xpath("//input[@id='']")).click();
-	    //driver.findElement(By.id("button-0")).click();
-	    //driver.findElement(By.cssSelector("html")).click();
+		driver.findElement(By.xpath("//input[@id='']")).click();
+	    driver.findElement(By.id("button-0")).click();
+	    driver.findElement(By.cssSelector("html")).click();
 	    
-	    //driver.findElement(By.linkText("OK")).click();
+	    driver.findElement(By.linkText("OK")).click();
 	}
 	public static void Delete(){
 		driver.findElement(By.xpath("//*[@id='93']/td[1]/input")).click();

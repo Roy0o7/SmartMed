@@ -19,9 +19,11 @@ public class LoginPage extends SetupBase{
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		Patients.Manage();
+		//Patients.Manage();
+		//FilterPatient.filter();
+		//FilterPatient.CarePathways();
 		//Logout.logout();
-		
+		TestHome.Home();
 		
 	}
 
