@@ -23,8 +23,11 @@ public class LoginPage extends SetupBase{
 		//FilterPatient.filter();
 		//FilterPatient.CarePathways();
 		//Logout.logout();
-		TestHome.Home();
-		
+		//TestHome.Home();
+		//Filter.MyPatient();
+		Filter.AllPatient();
+		//FilterPatient.MA();
+		//FilterPatient.MAL();
 	}
 
 	
