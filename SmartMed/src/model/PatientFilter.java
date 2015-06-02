@@ -3,6 +3,7 @@ package model;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class PatientFilter {
@@ -15,17 +16,15 @@ public class PatientFilter {
 		
 	}
 	
-	public void searchFor1(String string1) {
+	public void searchFor1(String string1, String s) {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath(string1)).clear();
-        
-    }
-	
+        driver.findElement(By.xpath(string1)).sendKeys(Keys.HOME,Keys.chord(Keys.SHIFT,Keys.END),s);
+    }	
 
 }

@@ -51,7 +51,8 @@ public class Patients extends LoginPage{
 		driver.findElement(By.xpath("//*[@id='id_ethnicity']")).sendKeys("Asian British");
 		driver.findElement(By.xpath("//*[@id='id_prefered_name']")).sendKeys("Roy");
 		driver.findElement(By.xpath("//*[@id='id_email']")).sendKeys("pritishroy1@gmail.com");
-		
+		driver.findElement(By.xpath("//*[@id='id_notes']")).sendKeys("The patient is Sick");
+
 		driver.findElement(By.xpath("//input[@id='']")).click();
 	    driver.findElement(By.id("button-0")).click();
 	    driver.findElement(By.cssSelector("html")).click();
@@ -75,9 +76,14 @@ public class Patients extends LoginPage{
 	    driver.findElement(By.xpath("//*[@id='id_region']")).sendKeys("Oxford");
 		driver.findElement(By.xpath("//*[@id='id_postcode']")).clear();
 		driver.findElement(By.xpath("//*[@id='id_postcode']")).sendKeys("OX1 2JD");
-		
+		driver.findElement(By.cssSelector("#entity-send-form-historical > .span7 > #id_notes")).sendKeys("The patient felt Sick again");
+		driver.findElement(By.xpath("//*[@id='id_opt_date']")).click();
+		driver.findElement(By.xpath("//*[@id='ui-datepicker-div']/table/tbody/tr[4]/td[2]/a")).click();
+		driver.findElement(By.xpath("//*[@id='patient-historical-add-note']")).click();
+		driver.findElement(By.xpath("//*[@id='button-0']")).click();
 		driver.findElement(By.xpath("//input[@id='']")).click();
 		driver.findElement(By.xpath("//*[@id='button-0']")).click();
+		
 	}
 	
 	public static void RandomSelectInt(Integer i, String s){

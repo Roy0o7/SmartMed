@@ -57,41 +57,29 @@ public class Filter extends LoginPage{
 	}
 	
 	public static void MyPatient(){
-		//driver.findElement(By.linkText("Patients")).click();
-	    //driver.findElement(By.linkText("Manage")).click();
+		driver.findElement(By.linkText("Patients")).click();
+	    driver.findElement(By.linkText("Manage")).click();
 	    driver.findElement(By.xpath("//*[@id='filter-switch']")).click();
 	    
 	    PatientFilter firstname = PageFactory.initElements(driver, PatientFilter.class);
 	    firstname.firstname("//*[@id='filter-1']", "93");
-	    firstname.firstname("//*[@id='filter-4']", "Simon");
+	    firstname.firstname("//*[@id='filter-4']", "Pritish");
 	    firstname.firstname("//*[@id='filter-5']", "Roy");
         Patients.RandomSelectInt(1, "//*[@id='filter-6']");
         firstname.firstname("//*[@id='filter-7']", "Oxford University");
         firstname.firstname("//*[@id='filter-8']", "Dhaka");
         firstname.firstname("//*[@id='filter-9']", "1209");
         
-        firstname.searchFor1("//*[@id='filter-9']");
-        firstname.searchFor1("//*[@id='filter-8']");
-        firstname.searchFor1("//*[@id='filter-7']");
+        firstname.searchFor1("//*[@id='filter-9']","");
+        firstname.searchFor1("//*[@id='filter-8']","");
+        firstname.searchFor1("//*[@id='filter-7']","");
         Patients.RandomSelectInt(0, "//*[@id='filter-6']");
-        firstname.searchFor1("//*[@id='filter-5']");
-        firstname.searchFor1("//*[@id='filter-4']");
-        firstname.searchFor1("//*[@id='filter-1']");
+        firstname.searchFor1("//*[@id='filter-5']","");
+        firstname.searchFor1("//*[@id='filter-4']","");
+        firstname.searchFor1("//*[@id='filter-1']","");
         
         
 	}
-
-	
-	
-	/*
-	public static void MA(){
-		
-	 	}
-	
-public static void MAL(){
-		driver.findElement(By.xpath("//*[@id='all-patient-filter']")).click();
-	 	}
-	*/
 
 	public static void AllPatient() {
 		driver.findElement(By.linkText("Patients")).click();
@@ -101,4 +89,28 @@ public static void MAL(){
 	    MyPatient();
 		
 	}
+	
+	public static void MA(){
+		driver.findElement(By.xpath("//*[@id='filter-switch']")).click();
+		PatientFilter firstname = PageFactory.initElements(driver, PatientFilter.class);
+	    Patients.RandomSelectInt(1, "//*[@id='filter-1']");
+	    Patients.RandomSelectInt(1, "//*[@id='filter-2']");
+	    Patients.RandomSelectInt(1, "//*[@id='filter-3']");
+	    firstname.firstname("//*[@id='filter-4']", "93");
+	    
+	    firstname.searchFor1("//*[@id='filter-4']","");
+	    Patients.RandomSelectInt(0, "//*[@id='filter-3']");
+	    Patients.RandomSelectInt(0, "//*[@id='filter-2']");
+	    Patients.RandomSelectInt(0, "//*[@id='filter-1']");
+	 	}
+	
+	public static void MAL(){
+		driver.findElement(By.xpath("//*[@id='all-patient-filter']")).click();
+		MA();
+	 	}
+	
+
+	
+
+	
 }
