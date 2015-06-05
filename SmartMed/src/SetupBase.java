@@ -17,7 +17,7 @@ public class SetupBase{
             driver.manage().window().maximize();
             driver.get(baseUrl);  
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            LoginPage.Login("toufiq", "toufiq123456");
+            LoginPage.Login("thawn", "thawn009");
             driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
             
             //forgotuser.forgotusername();
@@ -32,9 +32,10 @@ public class SetupBase{
     		//Filter.MA();
     		//Filter.MAL();
     		//TestHome.Node();
-    		SendMessage.toUsers("messages/create/?to=user");
+    		//SendMessage.toUsers("messages/create/?to=user",1);
     		//SendMessage.toPatients();
-    		            
+    		//SendMessage.toHealthWorkers();
+    		  HW.Manage();          
         }       
 
         @After

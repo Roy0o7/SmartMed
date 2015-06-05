@@ -1,18 +1,16 @@
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import org.openqa.selenium.By;
 
 public class SendMessage extends LoginPage{
 	static String baseUrl = "http://portal.mhealthcaresolutions.co.uk/";
 	
-	public static void toUsers(String url){
+	public static void toUsers(String url, Integer DeliverAs){
 		driver.get(baseUrl + url);
-		ComboBox(9,3);//(9,3) for toUser for Roy0o7 & (75,4) for toPatient for Patient Pritish
+		Patients.RandomSelectInt(DeliverAs, "//*[@id='id_deliver_as']");
+		ComboBox(5,5);//(9,3) for toUser for Roy0o7 & (75,4) for toPatient for Patient Pritish & (5,5) for hwc
 		int i =1;
 		Patients.RandomSelectInt(i, "//*[@id='id_send_option']");
-		Boolean iselementpresent = driver.findElements(By.xpath("//*[@id='id_repeat_frequency']")).size() ==i;
+		Boolean iselementpresent = driver.findElements(By.xpath("//*[@id='id_repeat_frequency']")).size() == i;
 		if (iselementpresent == true){
 			 Patients.RandomSelectInt(1, "//*[@id='id_repeat_frequency']");
 			 Boolean iselementpresent1 = driver.findElements(By.xpath("//*[@id='id_repeat_until']")).size() == 1;
@@ -35,7 +33,7 @@ public class SendMessage extends LoginPage{
 		driver.findElement(By.xpath("//div[2]/button")).click();
 	    driver.findElement(By.id("button-0")).click();
 	    
-	    Check();
+	    //Check();
 	}
 	public static void ComboBox(int j, int q){
 		String S="//*[@id='entity-send-form']/div/div[1]/div[1]/div[";
@@ -66,22 +64,27 @@ public class SendMessage extends LoginPage{
 	}
 	
 	public static void toPatients(){
-		toUsers("messages/create/?to=patient");
+		toUsers("messages/create/?to=patient",2);
 	}
 	
+	public static void toHealthWorkers(){
+		toUsers("/messages/create/?to=hcw",2);
+	}
+		
 	public static void CalenderTime(){
+		String innerhtml = driver.findElement(By.xpath("html/body/div[1]/div[2]/div[1]")).getAttribute("innerHTML");
+		System.out.println(innerhtml);
+		String a_letter = Character.toString(innerhtml.charAt(38));
+		String b_letter = Character.toString(innerhtml.charAt(39));
+		Integer x = Integer.valueOf(a_letter);
+		Integer y = Integer.valueOf(b_letter);
 		driver.findElement(By.xpath("//*[@id='id_delivery_time']/span/i")).click();
+		driver.findElement(By.cssSelector(".day.active")).click();
+		driver.findElement(By.cssSelector("i.icon-time")).click();
         
-		driver.findElement(By.xpath("//html/body/div[2]/ul/li[1]/div/div[1]/table/tbody/tr[1]/td[3]")).click();
-		Calendar cal = Calendar.getInstance();
-    	cal.getTime();
-    	SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-    	System.out.println( sdf.format(cal.getTime()) );
-    
-        driver.findElement(By.cssSelector("i.icon-time")).click();
-        for(int i=0;i<32;i++){
+		for(int i= x & y ; i< (x & y) + 10 ; i++ ){
         	driver.findElement(By.xpath("(//a[contains(@href, '#')])[7]")).click();
         }
+        
 	} 
 }
-

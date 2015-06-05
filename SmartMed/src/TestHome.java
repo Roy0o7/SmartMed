@@ -36,18 +36,18 @@ public class TestHome extends LoginPage{
 	  
 	}
 	
-	public static String[] generateRandomWords(int numberOfWords){
-	    String[] randomStrings = new String[numberOfWords];
-	    Random random = new Random();
-	    for(int i = 0; i < numberOfWords; i++){
-	        char[] word = new char[random.nextInt(8)+3];
-	        for(int j = 0; j < word.length; j++){
-	            word[j] = (char)('a' + random.nextInt(26));
-	        }
-	        randomStrings[i] = new String(word);
-	    }
-	    return randomStrings;
-	}
+	public static String generateRandomWords(int numberOfWords){
+		String alphabet = new String("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
+		int n = alphabet.length(); 
+
+		String result = new String(); 
+		Random r = new Random(); 
+
+		for (int i=0; i<numberOfWords; i++) 
+		    result = result + alphabet.charAt(r.nextInt(n)); 
+
+		return result;
+		}
 
 
 public static void getTableRowNumberWithValue(Integer j) {
