@@ -5,9 +5,9 @@ public class SendMessage extends LoginPage{
 	static String baseUrl = "http://portal.mhealthcaresolutions.co.uk/";
 	
 	public static void toUsers(String url, Integer DeliverAs){
-		driver.get(baseUrl + url);
-		Patients.RandomSelectInt(DeliverAs, "//*[@id='id_deliver_as']");
-		ComboBox(5,5);//(9,3) for toUser for Roy0o7 & (75,4) for toPatient for Patient Pritish & (5,5) for hwc
+		//driver.get(baseUrl + url);
+		//Patients.RandomSelectInt(DeliverAs, "//*[@id='id_deliver_as']");
+		//ComboBox(5,5);//(9,3) for toUser for Roy0o7 & (75,4) for toPatient for Patient Pritish & (5,5) for hwc
 		int i =1;
 		Patients.RandomSelectInt(i, "//*[@id='id_send_option']");
 		Boolean iselementpresent = driver.findElements(By.xpath("//*[@id='id_repeat_frequency']")).size() == i;
@@ -30,8 +30,8 @@ public class SendMessage extends LoginPage{
 		driver.findElement(By.xpath("//*[@id='id_subject']")).sendKeys(TestHome.generateRandomWords(10));
 		driver.findElement(By.xpath("//*[@id='id_text']")).sendKeys(TestHome.generateRandomWords(70));
 		
-		driver.findElement(By.xpath("//div[2]/button")).click();
-	    driver.findElement(By.id("button-0")).click();
+		//driver.findElement(By.xpath("//div[2]/button")).click();
+	    //driver.findElement(By.id("button-0")).click();
 	    
 	    //Check();
 	}

@@ -10,9 +10,9 @@ public static void Manage() throws IOException{
 		driver.findElement(By.linkText("HW")).click();
 	    driver.findElement(By.linkText("Manage")).click();
 	    	
-		Add();
-		//Delete();
-	    //Edit();
+		//Add();
+		//Delete("17");
+	    Edit("17");
 		
 	}
 	public static void Add(){
@@ -42,20 +42,20 @@ public static void Manage() throws IOException{
 	    driver.findElement(By.id("button-0")).click();
 	    
 	}
-	public static void Delete(){
+	public static void Delete(String ID){
 		driver.findElement(By.xpath("//*[@id='all-hcw-filter']")).click();
 		driver.findElement(By.xpath("//*[@id='filter-switch']")).click();
-		driver.findElement(By.xpath("//*[@id='filter-3']")).sendKeys("Pritish");
-		driver.findElement(By.xpath("//*[@id='17']/td[1]/input")).click();
+		driver.findElement(By.xpath("//*[@id='filter-1']")).sendKeys(ID);
+		driver.findElement(By.xpath("//*[@id='"+ID+"']/td[1]/input")).click();
 	    driver.findElement(By.id("delete-btn")).click();
 	    driver.findElement(By.id("button-0")).click();
 	}
 	
-	public static void Edit(){
+	public static void Edit(String ID){
 		driver.findElement(By.xpath("//*[@id='all-hcw-filter']")).click();
 		driver.findElement(By.xpath("//*[@id='filter-switch']")).click();
-		driver.findElement(By.xpath("//*[@id='filter-3']")).sendKeys("Pritish");
-		driver.findElement(By.xpath("//*[@id='17']/td[1]/input")).click();
+		driver.findElement(By.xpath("//*[@id='filter-1']")).sendKeys(ID);
+		driver.findElement(By.xpath("//*[@id='"+ID+"']/td[1]/input")).click();
 	    driver.findElement(By.id("edit-btn")).click();
 	    
 	    driver.findElement(By.xpath("//*[@id='id_address_1']")).clear();
@@ -63,8 +63,8 @@ public static void Manage() throws IOException{
 	       
 	    driver.findElement(By.xpath("//*[@id='id_postcode']")).clear();
 		driver.findElement(By.xpath("//*[@id='id_postcode']")).sendKeys("OX1 2JD");
-		driver.findElement(By.xpath("//input[@id='']")).click();
-		driver.findElement(By.xpath("//*[@id='button-0']")).click();
+		//driver.findElement(By.xpath("//input[@id='']")).click();
+		//driver.findElement(By.xpath("//*[@id='button-0']")).click();
 		
 	}
 	

@@ -14,8 +14,8 @@ public class Patients extends LoginPage{
 	    driver.findElement(By.linkText("Manage")).click();
 	    	
 		//Add();
-		//Delete();
-	    //Edit();
+		//Delete("93");
+	    //Edit("93");
 		
 	}
 	public static void Add(){
@@ -32,7 +32,7 @@ public class Patients extends LoginPage{
 		driver.findElement(By.xpath("//*[@id='datepicker']")).sendKeys("01-10-1992");
 		RandomSelectInt(2, "//*[@id='id_lead_clinician']");
 		RandomSelectInt(2, "//*[@id='id_country']");
-		/*		
+		
 		if(driver.findElement(By.xpath("//*[@id='id_Dob_formate']")).equals("dd-mm-yyyy")){
 			driver.findElement(By.xpath("//*[@id='datepicker']")).sendKeys("01-10-1992");	    	    				
 		}else if(driver.findElement(By.xpath("//*[@id='id_Dob_formate']")).equals("mm-dd-yyyy")){
@@ -40,7 +40,7 @@ public class Patients extends LoginPage{
 		}else{
 			driver.findElement(By.xpath("//*[@id='datepicker']")).sendKeys("1992-10-01");
 		}
-		*/
+		
 			
 	    driver.findElement(By.xpath("//*[@id='id_address_1']")).sendKeys("Picadally Circus");
 			    	    
@@ -59,14 +59,14 @@ public class Patients extends LoginPage{
 	    
 	    driver.findElement(By.linkText("OK")).click();
 	}
-	public static void Delete(){
-		driver.findElement(By.xpath("//*[@id='93']/td[1]/input")).click();
+	public static void Delete(String ID){
+		driver.findElement(By.xpath("//*[@id='"+ID+"']/td[1]/input")).click();
 	    driver.findElement(By.id("delete-btn")).click();
 	    driver.findElement(By.id("button-0")).click();
 	}
 	
-	public static void Edit(){
-		driver.findElement(By.xpath("//*[@id='93']/td[1]/input")).click();
+	public static void Edit(String ID){
+		driver.findElement(By.xpath("//*[@id='"+ID+"']/td[1]/input")).click();
 	    driver.findElement(By.id("edit-btn")).click();
 	    
 	    driver.findElement(By.xpath("//*[@id='id_address_1']")).clear();

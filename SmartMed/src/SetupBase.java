@@ -20,22 +20,26 @@ public class SetupBase{
             LoginPage.Login("thawn", "thawn009");
             driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
             
-            //forgotuser.forgotusername();
-            //forgotpass.forgotpassword();
+            //forgotuser.forgotusername("toufiq@gmail.com");
+            //forgotpass.forgotpassword("toufiq@gmail.com");
             //Patients.Manage();
-    		//FilterPatient.filter();
-    		//FilterPatient.CarePathways();
-    		//Logout.logout();
-    		//TestHome.Home();
+    		//Logout.logout("toufiq","Logout");
+            
+            //Filter.filter();
+    		//Filter.CarePathways();
     		//Filter.MyPatient();
     		//Filter.AllPatient();
     		//Filter.MA();
     		//Filter.MAL();
+            
     		//TestHome.Node();
+            //TestHome.DashBoard();
+            
     		//SendMessage.toUsers("messages/create/?to=user",1);
     		//SendMessage.toPatients();
     		//SendMessage.toHealthWorkers();
-    		  HW.Manage();          
+    		
+            HW.Manage();          
         }       
 
         @After
